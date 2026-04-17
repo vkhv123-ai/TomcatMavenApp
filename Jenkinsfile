@@ -44,7 +44,7 @@ pipeline {
                     credentialsId: 'tomcat-deployer-creds',
                     url: 'http://3.91.98.43:8080'
                 )],
-                contextPath: '/Tomcat-repo',
+                contextPath: '/TomcatMavenApp',
                 war: 'target/*.war'
             }
         }
