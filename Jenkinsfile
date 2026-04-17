@@ -13,13 +13,6 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
-            steps {
-                git branch: 'main',
-                url: 'https://github.com/vkhv123-ai/TomcatMavenApp.git'
-            }
-        }
-
         stage('Build') {
             steps {
                 sh 'mvn clean package -DskipTests'
