@@ -16,7 +16,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                url: 'https://github.com/vkhv123-ai/Tomcat-repo.git'
+                url: 'https://github.com/vkhv123-ai/TomcatMavenApp.git'
             }
         }
 
@@ -51,7 +51,7 @@ pipeline {
 
         stage('Smoke Test') {
             steps {
-                sh 'curl http://3.91.98.43:8080/Tomcat-repo'
+                sh 'curl http://3.91.98.43:8080/TomcatMavenApp'
             }
         }
     }
