@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        TOMCAT_URL = 'http://3.91.98.43:8080'
+        TOMCAT_URL = 'http://<TOMCAT-IP>:8080'
         WAR_FILE = 'target/*.war'
     }
 
@@ -35,16 +35,16 @@ pipeline {
             steps {
                 deploy adapters: [tomcat9(
                     credentialsId: 'tomcat-deployer-creds',
-                    url: 'http://3.91.98.43:8080'
+                    url: env.TOMCAT_URL
                 )],
                 contextPath: '/TomcatMavenApp',
-                war: 'target/*.war'
+                war: env.WAR_FILE
             }
         }
 
         stage('Smoke Test') {
             steps {
-                sh 'curl http://3.91.98.43:8080/TomcatMavenApp'
+                sh 'curl ${TOMCAT_URL}/TomcatMavenApp'
             }
         }
     }
