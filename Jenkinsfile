@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        TOMCAT_URL = 'http://<TOMCAT-IP>:8080'
+        TOMCAT_URL = 'http://13.60.79.117:8080'
         WAR_FILE = 'target/*.war'
     }
 
