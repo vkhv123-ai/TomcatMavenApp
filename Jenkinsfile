@@ -56,3 +56,13 @@ pipeline {
         }
     }
 }
+
+
+/*
+This Jenkins pipeline automates the CI/CD process for a Maven-based Java web application.
+The pipeline starts by building the application using Maven and packaging it into a WAR file.
+It then runs unit tests to validate the application functionality.
+The generated artifact is archived for future reference.
+Next, the application is deployed to an Apache Tomcat server using configured credentials.
+Finally, a smoke test is performed to verify that the application is successfully running.
+*/
