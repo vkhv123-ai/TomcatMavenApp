@@ -12,16 +12,23 @@ pipeline {
     }
 
     stages {
-
         stage('Build') {
             steps {
-                sh 'mvn clean package -DskipTests'
+                sh '''
+                export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+                export PATH=$JAVA_HOME/bin:$PATH
+                mvn clean package -DskipTests
+                '''
             }
         }
 
         stage('Unit Test') {
             steps {
-                sh 'mvn test'
+                sh '''
+                export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+                export PATH=$JAVA_HOME/bin:$PATH
+                mvn test
+                '''
             }
         }
 
